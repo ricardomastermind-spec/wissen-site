@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio de Resultados — Wissen Contabilidade</title>
+<meta name="description" content="Cases reais de economia tributária para médicos, clínicas e empresas. Mais de R$ 15 milhões gerados em economia para nossos clientes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --az:#0a2e3d;--az-deep:#061e2a;--az-mid:#0d3b52;
+  --gold:#c9a84c;--gold-light:#e8c97a;--gold-dark:#a6872e;
+  --white:#f4f0e8;--white-dim:rgba(244,240,232,0.55);--gray:#6a7a8a;
+  --green:#4ade80;--red:#ef4444;
+  --fd:'Cormorant Garamond',Georgia,serif;--fb:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--az-deep);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(201,168,76,0.3)}
+a{text-decoration:none;color:inherit}
+.reveal{opacity:0;transform:translateY(28px);transition:all 0.75s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.12s}.reveal-d2{transition-delay:0.24s}.reveal-d3{transition-delay:0.36s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,30,42,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.1);transition:all 0.3s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{height:44px}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{color:var(--gray);font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{padding:10px 22px;background:var(--gold);color:var(--az-deep)!important;font-weight:700;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:3px;transition:all 0.3s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.nav-cta::after{display:none!important}
+@media(max-width:768px){.nav-links{display:none}.nav-inner{padding:12px 20px}}
+
+/* SHARED */
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 20px}}
+.section{position:relative;overflow:hidden}
+.gold-divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.35) 20%,var(--gold) 50%,rgba(201,168,76,0.35) 80%,transparent)}
+.gold-bar{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:16px 0 20px}
+.btn-gold{padding:16px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--az-deep);font-weight:700;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:all 0.3s;display:inline-block}
+.btn-gold:hover{box-shadow:0 6px 28px rgba(201,168,76,0.3);transform:translateY(-2px)}
+.btn-outline{padding:16px 36px;background:transparent;color:var(--white-dim);font-weight:600;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(244,240,232,0.15);border-radius:4px;transition:all 0.3s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* HERO */
+.hero{min-height:82vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:130px 40px 100px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,0.05) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(201,168,76,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 50%,rgba(13,59,82,0.6) 0%,transparent 70%)}
+.hero-watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:420px;opacity:0.04;pointer-events:none;user-select:none;filter:grayscale(10%)}
+.hero-content{position:relative;z-index:2;max-width:840px}
+.hero-logo{height:80px;margin-bottom:40px;filter:drop-shadow(0 8px 28px rgba(201,168,76,0.18));animation:fadeIn 1s ease-out}
+.hero-badge{display:inline-block;border:1px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.07);color:var(--gold);font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:8px 24px;border-radius:2px;margin-bottom:30px;animation:fadeUp 0.8s ease-out 0.3s both}
+.hero h1{font-family:var(--fd);font-weight:700;font-size:clamp(2.6rem,5.5vw,4rem);line-height:1.08;color:var(--white);margin-bottom:22px;animation:fadeUp 0.8s ease-out 0.5s both}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1rem;color:var(--gray);line-height:1.7;max-width:580px;margin:0 auto 44px;animation:fadeUp 0.8s ease-out 0.7s both}
+.hero-stats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;animation:fadeUp 0.8s ease-out 0.9s both;margin-bottom:48px}
+.hero-stat-num{font-family:var(--fd);font-size:3.2rem;font-weight:700;color:var(--gold);line-height:1;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold-dark));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:goldShine 3s linear infinite}
+.hero-stat-label{font-size:0.68rem;color:var(--gray);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes goldShine{0%{background-position:-200% center}100%{background-position:200% center}}
+.hero-divider{width:56px;height:1px;background:var(--gold);margin:44px auto}
+
+/* CASES SECTION */
+.cases-section{padding:120px 0;background:var(--az-deep)}
+.section-header{margin-bottom:64px}
+.section-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--fd);font-size:clamp(2rem,3.2vw,2.8rem);font-weight:700;color:var(--white);line-height:1.12}
+.section-title em{color:var(--gold);font-style:italic}
+.section-sub{font-size:0.9rem;color:var(--white-dim);line-height:1.75;max-width:560px;margin-top:10px}
+.cases-total{text-align:center;padding:52px;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:14px;margin-bottom:52px}
+.cases-total .big{font-family:var(--fd);font-size:6rem;font-weight:700;line-height:1;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cases-total .sub{font-size:1.1rem;color:var(--white-dim);margin-top:10px}
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.case-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:32px;transition:all 0.35s}
+.case-card:hover{border-color:rgba(201,168,76,0.22);background:rgba(201,168,76,0.03);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+.case-tag{display:inline-block;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:16px}
+.case-tag.equip{background:rgba(74,222,128,0.1);color:var(--green);border:1px solid rgba(74,222,128,0.2)}
+.case-tag.trib{background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.2)}
+.case-tag.hold{background:rgba(168,138,58,0.15);color:var(--gold-light);border:1px solid rgba(168,138,58,0.25)}
+.case-tag.csc{background:rgba(99,102,241,0.1);color:#818cf8;border:1px solid rgba(99,102,241,0.2)}
+.case-tag.salon{background:rgba(244,114,182,0.1);color:#f472b6;border:1px solid rgba(244,114,182,0.2)}
+.case-sector{font-size:0.74rem;color:var(--gray);margin-bottom:8px;letter-spacing:0.03em}
+.case-result{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.15}
+.case-result span{color:var(--gold)}
+.case-detail{font-size:0.78rem;color:var(--white-dim);line-height:1.7}
+@media(max-width:768px){.cases-grid{grid-template-columns:1fr}}
+
+/* PACKAGES */
+.packages{padding:120px 0;background:var(--az-mid)}
+.packages-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:920px;margin:64px auto 0}
+.pkg-card{border-radius:14px;padding:48px 40px;position:relative;overflow:hidden;transition:all 0.4s}
+.pkg-card.essencial{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08)}
+.pkg-card.premium{background:rgba(201,168,76,0.06);border:2px solid rgba(201,168,76,0.35)}
+.pkg-card.premium::before{content:'MAIS POPULAR';position:absolute;top:22px;right:-30px;background:var(--gold);color:var(--az-deep);font-size:0.6rem;font-weight:800;letter-spacing:0.15em;padding:6px 38px;transform:rotate(45deg)}
+.pkg-name{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.pkg-price{font-size:0.82rem;color:var(--gold);font-weight:600;margin-bottom:28px;letter-spacing:0.03em}
+.pkg-features{list-style:none;margin-bottom:34px}
+.pkg-features li{font-size:0.82rem;color:var(--white-dim);padding:9px 0 9px 24px;position:relative;line-height:1.55;border-bottom:1px solid rgba(255,255,255,0.04)}
+.pkg-features li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+.pkg-features li.disabled{color:rgba(244,240,232,0.2);opacity:0.5}
+.pkg-features li.disabled::before{content:'—';color:rgba(244,240,232,0.2)}
+.pkg-cta{display:block;text-align:center;padding:16px;border-radius:6px;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.3s}
+.essencial .pkg-cta{background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold)}
+.essencial .pkg-cta:hover{background:rgba(201,168,76,0.1)}
+.premium .pkg-cta{background:var(--gold);color:var(--az-deep);border:none}
+.premium .pkg-cta:hover{background:var(--gold-light)}
+@media(max-width:768px){.packages-grid{grid-template-columns:1fr}}
+
+/* CTA FINAL */
+.cta-block{padding:120px 0;text-align:center;background:linear-gradient(180deg,var(--az-deep) 0%,var(--az-mid) 100%)}
+.cta-block h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:16px}
+.cta-block h2 em{color:var(--gold);font-style:italic}
+.cta-block p{font-size:0.9rem;color:var(--gray);line-height:1.75;max-width:520px;margin:0 auto 36px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(201,168,76,0.07);padding:40px 0;text-align:center;background:var(--az-deep)}
+.footer-name{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.footer-title{font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+.footer-links{font-size:0.75rem;color:var(--gray)}
+.footer-links a{color:var(--gray);transition:color 0.3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-slogan{font-family:var(--fd);font-style:italic;font-size:0.8rem;color:rgba(201,168,76,0.2);margin-top:16px}
+
+/* WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:99;display:flex;align-items:center;gap:10px;padding:12px 20px 12px 16px;border-radius:50px;background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:all 0.4s}
+.wa-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
+.wa-text{font-size:0.82rem;font-weight:600;color:#fff;white-space:nowrap}
+@media(max-width:480px){.wa-text{display:none}.wa-float{padding:14px;border-radius:50%}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/"><img src="./logo.png" class="nav-logo" alt="Wissen Contabilidade"></a>
+    <div class="nav-links">
+      <a href="/">Início</a>
+      <a href="/#solucoes">Soluções</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/portfolio" class="active">Portfólio</a>
+      <a href="/blog">Blog</a>
+      <a href="https://diagnostico.wissencontabilidade.com.br" class="nav-cta">Diagnóstico Gratuito</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="./logo.png" class="hero-watermark" alt="" aria-hidden="true">
+  <div class="hero-content">
+    <img src="./logo.png" class="hero-logo" alt="Wissen Contabilidade">
+    <div class="hero-badge">Portfólio de Resultados</div>
+    <h1>Economias reais.<br><em>Clientes reais.</em></h1>
+    <p class="hero-sub">Cada case representa uma transformação financeira concreta. Não vendemos promessas — apresentamos resultados mensuráveis, documentados e verificáveis.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">R$ 15M+</div>
+        <div class="hero-stat-label">Economia gerada total</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">150+</div>
+        <div class="hero-stat-label">Clientes atendidos</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">11+</div>
+        <div class="hero-stat-label">Cases documentados</div>
+      </div>
+    </div>
+    <a href="https://diagnostico.wissencontabilidade.com.br" class="btn-gold">Quero Meu Diagnóstico Gratuito</a>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CASES -->
+<section class="cases-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Cases &amp; Resultados</div>
+      <h2 class="section-title">Transformações financeiras<br><em>com números reais</em></h2>
+      <div class="gold-bar"></div>
+      <p class="section-sub">Do diagnóstico à implementação. Cada estratégia calibrada individualmente para o perfil e a realidade de cada cliente.</p>
+    </div>
+
+    <div class="cases-total reveal">
+      <div class="big">R$ 15M+</div>
+      <div class="sub">em economia tributária gerada para nossos clientes</div>
+    </div>
+
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-tag trib">Planejamento Tributário + CSC</div>
+        <div class="case-sector">Grupo empresarial — Faturamento R$ 300M/ano</div>
+        <div class="case-result"><span>R$ 5 milhões</span> de economia</div>
+        <div class="case-detail">R$ 3M recuperados dos últimos 5 anos + R$ 2M em 2 anos de acompanhamento. Implementação de Centro de Serviços Compartilhados com modelo de rateio previsto em lei.</div>
+      </div>
+      <div class="case-card reveal reveal-d1">
+        <div class="case-tag hold">Holding + Planejamento Sucessório</div>
+        <div class="case-sector">Grupo de tecnologia — Faturamento R$ 280M/ano</div>
+        <div class="case-result"><span>R$ 250 mil/ano</span> de economia</div>
+        <div class="case-detail">Implementação de modelo holding com planejamento sucessório e reestruturação da remuneração dos sócios. Redução permanente na carga tributária.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag trib">Planejamento Tributário + CSC</div>
+        <div class="case-sector">Grupo empresarial — Faturamento R$ 15M/ano</div>
+        <div class="case-result"><span>R$ 300 mil</span> em 3 anos</div>
+        <div class="case-detail">Modelo de Centro de Serviços Compartilhados combinado com planejamento tributário integrado para todas as empresas do grupo.</div>
+      </div>
+      <div class="case-card reveal reveal-d1">
+        <div class="case-tag equip">Equiparação Hospitalar</div>
+        <div class="case-sector">Clínica de Urologia</div>
+        <div class="case-result"><span>R$ 135 mil</span> recuperados + R$ 60 mil/ano</div>
+        <div class="case-detail">Recuperação de créditos dos últimos 5 anos e redução permanente de R$ 60 mil por ano em impostos com equiparação hospitalar.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag equip">Equiparação Hospitalar</div>
+        <div class="case-sector">Clínica médica — Faturamento R$ 90 mil/mês</div>
+        <div class="case-result"><span>R$ 130 mil</span> recuperados + R$ 40 mil/ano</div>
+        <div class="case-detail">Implementação de equiparação hospitalar com recuperação de créditos tributários e economia anual permanente.</div>
+      </div>
+      <div class="case-card reveal reveal-d1">
+        <div class="case-tag equip">Equiparação Hospitalar</div>
+        <div class="case-sector">Clínica médica — Faturamento R$ 250 mil/mês</div>
+        <div class="case-result"><span>R$ 70 mil/ano</span> de redução</div>
+        <div class="case-detail">Implementação de equiparação hospitalar com emissão de 100% das NFs. Redução imediata e permanente na carga tributária.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag equip">Equiparação Hospitalar</div>
+        <div class="case-sector">Clínica nova — Abertura com equiparação</div>
+        <div class="case-result"><span>R$ 50 mil/ano</span> de economia</div>
+        <div class="case-detail">Clínica aberta já no modelo de equiparação hospitalar desde o primeiro dia. Economia tributária desde a primeira fatura.</div>
+      </div>
+      <div class="case-card reveal reveal-d1">
+        <div class="case-tag csc">Serviços Compartilhados</div>
+        <div class="case-sector">Grupo de empresas médicas + Holding</div>
+        <div class="case-result"><span>R$ 45 mil/ano</span> de economia</div>
+        <div class="case-detail">Modelo de serviços compartilhados entre empresas do grupo, eliminando emissão de NF entre elas com relatório de rateio previsto em lei.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag trib">Enquadramento Tributário</div>
+        <div class="case-sector">Empresa de consultoria</div>
+        <div class="case-result"><span>R$ 90 mil</span> recuperados + R$ 20 mil/ano</div>
+        <div class="case-detail">Enquadramento no regime tributário correto com recuperação de créditos dos últimos 5 anos e economia contínua.</div>
+      </div>
+      <div class="case-card reveal reveal-d1">
+        <div class="case-tag trib">Dedução de Repasses</div>
+        <div class="case-sector">Clínica com médicos parceiros</div>
+        <div class="case-result"><span>R$ 50 mil/ano</span> de redução</div>
+        <div class="case-detail">Implementação da tese legal que permite deduzir do faturamento os repasses feitos aos médicos parceiros. Redução imediata.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag salon">Lei do Salão Parceiro</div>
+        <div class="case-sector">6 estúdios de estética</div>
+        <div class="case-result"><span>40%</span> de redução em impostos</div>
+        <div class="case-detail">Implementação da Lei do Salão Parceiro em 6 unidades. Retirada de 40% do faturamento da base de cálculo, reduzindo proporcionalmente todos os impostos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- PACKAGES -->
+<section class="packages" id="investimento">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Investimento</div>
+      <h2 class="section-title">Escolha o nível de<br><em>inteligência contábil</em></h2>
+      <div class="gold-bar" style="margin:16px auto 20px"></div>
+      <p class="section-sub" style="margin:0 auto">Nosso serviço se paga. A economia gerada supera o investimento já nos primeiros meses.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="pkg-card essencial reveal">
+        <div class="pkg-name">Essencial</div>
+        <div class="pkg-price">A partir de R$ 1.600/mês</div>
+        <ul class="pkg-features">
+          <li>Contabilidade consultiva completa</li>
+          <li>Apuração e revisão tributária</li>
+          <li>Folha de pagamento especializada</li>
+          <li>Reunião mensal de resultados</li>
+          <li>Relatório executivo mensal</li>
+          <li>Canal direto com contador sênior</li>
+          <li>Compliance fiscal e sanitário</li>
+          <li class="disabled">Planejamento financeiro + dashboard</li>
+          <li class="disabled">BPO financeiro completo</li>
+        </ul>
+        <a href="https://wa.me/5511994450409?text=Olá! Tenho interesse no plano Essencial da Wissen Contabilidade." class="pkg-cta">Falar com Ricardo</a>
+      </div>
+      <div class="pkg-card premium reveal reveal-d1">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-price">A partir de R$ 2.800/mês</div>
+        <ul class="pkg-features">
+          <li>Tudo do Essencial incluso</li>
+          <li>Planejamento financeiro estratégico</li>
+          <li>Dashboard personalizado com KPIs</li>
+          <li>Reuniões estratégicas mensais (1h30)</li>
+          <li>BPO financeiro completo</li>
+          <li>Contas a pagar/receber + conciliação</li>
+          <li>Régua de cobrança automatizada</li>
+          <li>Alertas proativos de desvios</li>
+          <li>Equipe dedicada com backup</li>
+        </ul>
+        <a href="https://wa.me/5511994450409?text=Olá! Tenho interesse no plano Premium da Wissen Contabilidade." class="pkg-cta">Falar com Ricardo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-block" id="contato">
+  <div class="container reveal">
+    <h2>Pronto para descobrir quanto<br>sua clínica está <em>deixando na mesa?</em></h2>
+    <p>Diagnóstico tributário gratuito e sem compromisso. Em 45 minutos, você terá um panorama completo da sua situação fiscal.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5511994450409?text=Olá Ricardo! Gostaria de agendar um diagnóstico tributário gratuito para minha clínica." class="btn-gold">📱 Agendar pelo WhatsApp</a>
+      <a href="/" class="btn-outline">← Voltar ao Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <img src="./logo.png" style="height:36px;margin-bottom:16px;opacity:0.35" alt="Wissen">
+    <div class="footer-name">Ricardo Torres</div>
+    <div class="footer-title">Contador · Mestre em Finanças Empresariais</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/ocontadordaclinica">@ocontadordaclinica</a> &nbsp;·&nbsp;
+      <a href="https://www.wissencontabilidade.com.br">wissencontabilidade.com.br</a> &nbsp;·&nbsp;
+      (11) 99445-0409
+    </div>
+    <div class="footer-slogan">Você não precisa de mais uma contabilidade. Você precisa de um contador.</div>
+  </div>
+</footer>
+
+<!-- WA -->
+<a href="https://wa.me/5511994450409" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-text">Fale com a gente</span>
+</a>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

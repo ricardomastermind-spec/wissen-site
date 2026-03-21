@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Wissen Contabilidade · Inteligência Tributária para Médicos</title>
+<meta name="description" content="Artigos e insights sobre planejamento tributário, proteção patrimonial e gestão financeira para médicos e clínicas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --az:#0a2e3d;--az-deep:#061e2a;--az-mid:#0d3b52;
+  --gold:#c9a84c;--gold-light:#e8c97a;--gold-dark:#a6872e;
+  --white:#f4f0e8;--white-dim:rgba(244,240,232,0.55);--gray:#6a7a8a;
+  --fd:'Cormorant Garamond',Georgia,serif;--fb:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--az-deep);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(201,168,76,0.3)}
+a{text-decoration:none;color:inherit}
+.reveal{opacity:0;transform:translateY(26px);transition:all 0.75s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,30,42,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.1);transition:all 0.3s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{height:44px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--gray);font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{padding:10px 22px;background:var(--gold);color:var(--az-deep)!important;font-weight:700;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:3px;transition:all 0.3s}
+.nav-cta:hover{background:var(--gold-light)}
+.nav-cta::after{display:none!important}
+@media(max-width:768px){.nav-links{display:none}.nav-inner{padding:12px 20px}}
+
+/* SHARED */
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 20px}}
+.gold-divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.35) 20%,var(--gold) 50%,rgba(201,168,76,0.35) 80%,transparent)}
+.gold-bar{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:16px 0 20px}
+.btn-gold{padding:15px 34px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--az-deep);font-weight:700;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:all 0.3s;display:inline-block}
+.btn-gold:hover{box-shadow:0 6px 28px rgba(201,168,76,0.3);transform:translateY(-2px)}
+.btn-outline{padding:15px 34px;background:transparent;color:var(--white-dim);font-weight:600;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(244,240,232,0.15);border-radius:4px;transition:all 0.3s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* HERO */
+.hero{padding:140px 40px 90px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(13,59,82,0.5) 0%,transparent 70%)}
+.hero-watermark{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:380px;opacity:0.035;pointer-events:none;user-select:none}
+.hero-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.hero-badge{display:inline-block;border:1px solid rgba(201,168,76,0.25);background:rgba(201,168,76,0.07);color:var(--gold);font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:7px 22px;border-radius:2px;margin-bottom:24px}
+.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:0.95rem;color:var(--gray);line-height:1.75;max-width:520px;margin:0 auto}
+
+/* FEATURED ARTICLE */
+.featured{padding:70px 0 0}
+.featured-card{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:rgba(10,46,61,0.4);border:1px solid rgba(201,168,76,0.1);border-radius:14px;overflow:hidden;transition:all 0.4s;cursor:pointer}
+.featured-card:hover{border-color:rgba(201,168,76,0.25);box-shadow:0 16px 60px rgba(0,0,0,0.25)}
+.featured-content{padding:52px 48px}
+.featured-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:18px;background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid rgba(201,168,76,0.2)}
+.featured-badge.estrategia{background:rgba(74,156,109,0.1);color:#4a9c6d;border-color:rgba(74,156,109,0.2)}
+.featured-badge.irpf{background:rgba(91,127,181,0.1);color:#5b7fb5;border-color:rgba(91,127,181,0.2)}
+.featured-badge.patrimonio{background:rgba(139,107,181,0.1);color:#8b6bb5;border-color:rgba(139,107,181,0.2)}
+.featured-badge.compliance{background:rgba(181,137,107,0.1);color:#b5896b;border-color:rgba(181,137,107,0.2)}
+.featured-title{font-family:var(--fd);font-size:clamp(1.5rem,2.2vw,2rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:14px}
+.featured-excerpt{font-size:0.86rem;color:var(--white-dim);line-height:1.75;margin-bottom:24px}
+.featured-meta{font-size:0.68rem;color:rgba(244,240,232,0.3);letter-spacing:0.05em}
+.featured-read{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-top:20px}
+.featured-read svg{transition:transform 0.3s}
+.featured-card:hover .featured-read svg{transform:translateX(4px)}
+.featured-visual{background:linear-gradient(135deg,rgba(10,46,61,0.8),rgba(201,168,76,0.06));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.featured-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 70%)}
+.featured-visual img{height:120px;opacity:0.18;position:relative;z-index:1;filter:grayscale(20%)}
+.featured-visual .feat-num{font-family:var(--fd);font-size:5rem;font-weight:700;color:var(--gold);opacity:0.15;position:absolute;right:32px;bottom:24px;line-height:1}
+@media(max-width:768px){.featured-card{grid-template-columns:1fr}.featured-visual{display:none}.featured-content{padding:32px 28px}}
+
+/* ARTICLES GRID */
+.articles-section{padding:80px 0 120px}
+.articles-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:20px}
+.articles-header h2{font-family:var(--fd);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;color:var(--white)}
+.articles-header h2 em{color:var(--gold);font-style:italic}
+.articles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.article-card{background:rgba(10,46,61,0.35);border:1px solid rgba(201,168,76,0.07);border-radius:10px;overflow:hidden;transition:all 0.4s;cursor:pointer;display:flex;flex-direction:column}
+.article-card:hover{border-color:rgba(201,168,76,0.22);transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,0,0,0.25)}
+.article-bar{height:3px}
+.article-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.article-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:14px}
+.article-title{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
+.article-excerpt{font-size:0.8rem;color:var(--gray);line-height:1.7;flex:1}
+.article-footer{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.04)}
+.article-meta{font-size:0.66rem;color:rgba(244,240,232,0.25)}
+.article-read{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:4px}
+@media(max-width:768px){.articles-grid{grid-template-columns:1fr}}
+
+/* NEWSLETTER / CTA */
+.cta-block{padding:100px 0;background:var(--az-mid);text-align:center}
+.cta-block h2{font-family:var(--fd);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--white);margin-bottom:14px}
+.cta-block h2 em{font-style:italic;color:var(--gold)}
+.cta-block p{font-size:0.9rem;color:var(--gray);line-height:1.75;max-width:500px;margin:0 auto 34px}
+
+/* MODAL */
+#articleModal{display:none;position:fixed;inset:0;z-index:200;background:rgba(6,30,42,0.94);backdrop-filter:blur(10px);overflow-y:auto}
+.modal-inner{max-width:740px;margin:0 auto;padding:60px 28px 80px}
+.modal-close{position:fixed;top:20px;right:28px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-size:1.3rem;width:44px;height:44px;border-radius:50%;cursor:pointer;z-index:201;transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:rgba(201,168,76,0.2)}
+.modal-content h3{font-family:var(--fd);font-size:1.25rem;font-weight:600;color:var(--gold);margin:26px 0 10px}
+.modal-content p{margin-bottom:16px;font-size:0.9rem;color:var(--white-dim);line-height:1.85}
+.modal-content strong{color:var(--white)}
+.modal-cta{text-align:center;margin-top:44px;padding-top:30px;border-top:1px solid rgba(201,168,76,0.08)}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(201,168,76,0.07);padding:40px 0;text-align:center;background:var(--az-deep)}
+.footer-name{font-family:var(--fd);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:5px}
+.footer-title{font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
+.footer-links{font-size:0.74rem;color:var(--gray)}
+.footer-links a{color:var(--gray);transition:color 0.3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-slogan{font-family:var(--fd);font-style:italic;font-size:0.78rem;color:rgba(201,168,76,0.2);margin-top:14px}
+
+/* WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:99;display:flex;align-items:center;gap:10px;padding:12px 20px 12px 16px;border-radius:50px;background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:all 0.4s}
+.wa-float:hover{transform:translateY(-3px)}
+.wa-text{font-size:0.82rem;font-weight:600;color:#fff;white-space:nowrap}
+@media(max-width:480px){.wa-text{display:none}.wa-float{padding:14px;border-radius:50%}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/"><img src="./logo.png" class="nav-logo" alt="Wissen Contabilidade"></a>
+    <div class="nav-links">
+      <a href="/">Início</a>
+      <a href="/#solucoes">Soluções</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/portfolio">Portfólio</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="https://diagnostico.wissencontabilidade.com.br" class="nav-cta">Diagnóstico Gratuito</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="./logo.png" class="hero-watermark" alt="" aria-hidden="true">
+  <div class="hero-content">
+    <div class="hero-badge">Inteligência Tributária Aplicada</div>
+    <h1>Artigos para médicos<br>que pensam <em>estrategicamente</em></h1>
+    <p class="hero-sub">Conteúdo técnico sobre planejamento tributário, proteção patrimonial e gestão financeira — escrito por quem vive o setor médico de dentro.</p>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- FEATURED ARTICLE -->
+<section class="featured">
+  <div class="container">
+    <div class="featured-card reveal" onclick="openArticle(0)">
+      <div class="featured-content">
+        <div class="featured-badge">Reforma Tributária</div>
+        <div class="featured-title">Reforma Tributária para Clínicas Médicas: o que muda e como se preparar</div>
+        <div class="featured-excerpt">A reforma tributária aprovada em 2025 traz mudanças significativas para prestadores de serviços de saúde. Com a unificação de PIS, Cofins, IPI, ICMS e ISS nos novos tributos IBS e CBS, clínicas médicas precisam repensar toda a sua estrutura fiscal — agora.</div>
+        <div class="featured-meta">15 Mar 2026 · 7 min de leitura</div>
+        <div class="featured-read">
+          Ler artigo completo
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </div>
+      <div class="featured-visual">
+        <img src="./logo.png" alt="">
+        <div class="feat-num">01</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES GRID -->
+<section class="articles-section">
+  <div class="container">
+    <div class="articles-header reveal">
+      <div>
+        <h2>Mais artigos<br><em>desta semana</em></h2>
+      </div>
+      <div style="font-size:0.75rem;color:var(--gray)">5 artigos disponíveis</div>
+    </div>
+    <div class="articles-grid">
+
+      <div class="article-card reveal" onclick="openArticle(1)">
+        <div class="article-bar" style="background:linear-gradient(90deg,#4a9c6d,#6bc48e)"></div>
+        <div class="article-body">
+          <span class="article-tag" style="color:#4a9c6d;background:rgba(74,156,109,0.1)">Estratégia</span>
+          <div class="article-title">5 estratégias para fugir do imposto sobre altas rendas (+R$ 50 mil)</div>
+          <div class="article-excerpt">Médicos com faturamento mensal acima de R$ 50 mil frequentemente pagam mais impostos do que deveriam. Existem estratégias legais e eficazes para otimizar essa carga.</div>
+          <div class="article-footer">
+            <span class="article-meta">12 Mar 2026 · 6 min</span>
+            <span class="article-read">Ler <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card reveal reveal-d1" onclick="openArticle(2)">
+        <div class="article-bar" style="background:linear-gradient(90deg,#5b7fb5,#8aa8d4)"></div>
+        <div class="article-body">
+          <span class="article-tag" style="color:#5b7fb5;background:rgba(91,127,181,0.1)">IRPF 2026</span>
+          <div class="article-title">IR 2026: novidades que vão impactar a forma como você declara seu imposto</div>
+          <div class="article-excerpt">A declaração do Imposto de Renda 2026 traz mudanças relevantes que afetam diretamente profissionais da saúde. Novas regras, faixas e deduções importantes.</div>
+          <div class="article-footer">
+            <span class="article-meta">10 Mar 2026 · 5 min</span>
+            <span class="article-read">Ler <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card reveal" onclick="openArticle(3)">
+        <div class="article-bar" style="background:linear-gradient(90deg,#8b6bb5,#b08ad4)"></div>
+        <div class="article-body">
+          <span class="article-tag" style="color:#8b6bb5;background:rgba(139,107,181,0.1)">Patrimônio</span>
+          <div class="article-title">Holding para médicos: economia de impostos e proteção patrimonial</div>
+          <div class="article-excerpt">A holding familiar é uma das ferramentas mais poderosas para médicos que acumularam patrimônio significativo. Entenda como ela pode proteger o que você construiu.</div>
+          <div class="article-footer">
+            <span class="article-meta">8 Mar 2026 · 8 min</span>
+            <span class="article-read">Ler <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card reveal reveal-d1" onclick="openArticle(4)">
+        <div class="article-bar" style="background:linear-gradient(90deg,#b5896b,#d4a88a)"></div>
+        <div class="article-body">
+          <span class="article-tag" style="color:#b5896b;background:rgba(181,137,107,0.1)">Compliance</span>
+          <div class="article-title">Equiparação Hospitalar: guia completo para implementação em clínicas médicas</div>
+          <div class="article-excerpt">Legislação, exigências, passo a passo e os benefícios tributários da equiparação hospitalar. Pode reduzir sua tributação de 32% para 8% sobre o faturamento.</div>
+          <div class="article-footer">
+            <span class="article-meta">5 Mar 2026 · 10 min</span>
+            <span class="article-read">Ler <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CTA -->
+<section class="cta-block">
+  <div class="container reveal">
+    <h2>Quer aplicar esses conhecimentos<br>na sua <em>realidade específica?</em></h2>
+    <p>O diagnóstico tributário gratuito da Wissen analisa sua situação individual e identifica as oportunidades reais para o seu caso.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://diagnostico.wissencontabilidade.com.br" class="btn-gold">Solicitar Diagnóstico Gratuito</a>
+      <a href="/" class="btn-outline">← Voltar ao Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <img src="./logo.png" style="height:34px;margin-bottom:14px;opacity:0.35" alt="Wissen">
+    <div class="footer-name">Ricardo Torres</div>
+    <div class="footer-title">Contador · Mestre em Finanças Empresariais</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/ocontadordaclinica">@ocontadordaclinica</a> &nbsp;·&nbsp;
+      <a href="https://www.wissencontabilidade.com.br">wissencontabilidade.com.br</a> &nbsp;·&nbsp;
+      (11) 97887-7877
+    </div>
+    <div class="footer-slogan">Você não precisa de mais uma contabilidade. Você precisa de um contador.</div>
+  </div>
+</footer>
+
+<!-- WA -->
+<a href="https://wa.me/5511978877877" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-text">Fale com a gente</span>
+</a>
+
+<!-- ARTICLE MODAL -->
+<div id="articleModal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeArticle()">✕</button>
+    <div id="articleContent" class="modal-content"></div>
+    <div class="modal-cta">
+      <p style="font-size:0.82rem;color:var(--white-dim);margin-bottom:18px">Quer entender como isso se aplica à sua realidade?</p>
+      <a href="https://diagnostico.wissencontabilidade.com.br" class="btn-gold">SOLICITAR DIAGNÓSTICO GRATUITO</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Articles data
+const articles=[
+  {tag:'Reforma Tributária',color:'#c9a84c',date:'15 Mar 2026',read:'7 min',title:'Reforma Tributária para Clínicas Médicas: o que muda e como se preparar',content:'<p>A reforma tributária aprovada em 2025 traz mudanças significativas para prestadores de serviços de saúde. Com a unificação de PIS, Cofins, IPI, ICMS e ISS nos novos tributos IBS e CBS, clínicas médicas precisam repensar toda a sua estrutura fiscal.</p><h3>Principais mudanças para o setor médico</h3><p>A alíquota unificada prevista gira em torno de 26,5% sobre o faturamento — porém, serviços de saúde contam com redução de 60%, o que pode resultar em uma alíquota efetiva próxima de 10,6%. Entretanto, essa redução depende do enquadramento correto da atividade e do cumprimento de requisitos específicos.</p><h3>O que sua clínica precisa fazer agora</h3><p>O período de transição vai de 2026 a 2033. As principais ações imediatas são: revisão da estrutura societária, análise comparativa entre regimes, mapeamento de créditos tributários aproveitáveis e adequação dos sistemas de emissão de notas fiscais.</p><h3>Impacto na precificação de serviços</h3><p>Com a mudança na forma de tributação, o custo tributário real de cada procedimento pode mudar significativamente. Clínicas que não ajustarem sua precificação podem ter a margem de lucro corroída sem perceber.</p><p><strong>A Wissen Contabilidade acompanha de perto cada fase da reforma tributária e orienta seus clientes com antecedência em cada etapa da transição.</strong></p>'},
+  {tag:'Estratégia',color:'#4a9c6d',date:'12 Mar 2026',read:'6 min',title:'5 estratégias para fugir do imposto sobre altas rendas (+R$ 50 mil)',content:'<p>Médicos com faturamento mensal acima de R$ 50 mil frequentemente pagam mais impostos do que deveriam. A boa notícia: existem estratégias legais e eficazes para otimizar essa carga.</p><h3>1. Escolha cirúrgica do regime tributário</h3><p>Muitos médicos estão no Simples Nacional quando deveriam estar no Lucro Presumido — ou vice-versa. A diferença pode chegar a dezenas de milhares de reais por ano. Para faturamentos acima de R$ 50 mil, o Lucro Presumido com equiparação hospitalar pode reduzir a base de cálculo do IRPJ e CSLL de 32% para 8%.</p><h3>2. Estruturação societária inteligente</h3><p>Distribuição de lucros entre sócios, criação de sociedades especializadas por tipo de atividade e segregação entre atividades operacionais e patrimoniais geram economias substanciais.</p><h3>3. Maximização de despesas dedutíveis</h3><p>Aluguel do consultório, equipamentos, cursos de atualização, plano de saúde empresarial, previdência privada empresarial — grande parte dos médicos não aproveita todas as despesas que poderiam ser deduzidas legalmente.</p><h3>4. Holding patrimonial e familiar</h3><p>Para médicos com patrimônio relevante, a constituição de uma holding pode reduzir significativamente a tributação sobre rendimentos de aluguéis e ganho de capital, além de proteger o patrimônio pessoal.</p><h3>5. Planejamento previdenciário estratégico</h3><p>O pró-labore correto combinado com distribuição de lucros gera economia no INSS e IR simultaneamente.</p><p><strong>Cada estratégia precisa ser calibrada individualmente. Esse é o diagnóstico que a Wissen Contabilidade faz.</strong></p>'},
+  {tag:'IRPF 2026',color:'#5b7fb5',date:'10 Mar 2026',read:'5 min',title:'IR 2026: novidades que vão impactar a forma como você declara seu imposto',content:'<p>A declaração do Imposto de Renda 2026 (ano-calendário 2025) traz mudanças relevantes que afetam diretamente profissionais da saúde.</p><h3>Nova faixa de isenção e alíquotas</h3><p>A faixa de isenção foi atualizada, mas para médicos com rendimentos elevados, o impacto real está nas faixas superiores. A alíquota efetiva para rendimentos acima de R$ 50 mil mensais reforça a importância do planejamento tributário.</p><h3>Novas regras para investimentos</h3><p>A Receita Federal ampliou as exigências de declaração para investimentos em criptomoedas, fundos no exterior e operações de day trade. Médicos investidores precisam atenção redobrada.</p><h3>Deduções que médicos frequentemente esquecem</h3><p>Despesas com livro-caixa, contribuições a previdência privada, despesas médicas próprias e de dependentes — a forma de comprovar e declarar ficou mais rigorosa.</p><h3>Obrigatoriedade de declaração para PJ</h3><p>Médicos que possuem PJ e pessoa física precisam declarar ambas de forma consistente. Inconsistências entre IRPF e IRPJ são o principal gatilho de malha fina para profissionais de saúde.</p><p><strong>A Wissen Contabilidade prepara as declarações de IRPF de forma integrada com a contabilidade da PJ, eliminando riscos e maximizando deduções legais.</strong></p>'},
+  {tag:'Patrimônio',color:'#8b6bb5',date:'8 Mar 2026',read:'8 min',title:'Holding para médicos: economia de impostos e proteção patrimonial',content:'<p>A holding familiar é uma das ferramentas mais poderosas para médicos que acumularam patrimônio significativo.</p><h3>O que é uma holding patrimonial</h3><p>É uma pessoa jurídica criada para administrar bens (imóveis, participações societárias, investimentos) de uma pessoa física ou família. Não é uma empresa operacional — é uma estrutura de gestão e proteção.</p><h3>Benefícios tributários concretos</h3><p>Imóveis na pessoa física pagam até 27,5% de IR sobre aluguéis. Na holding, essa alíquota pode cair para 11% a 14%. Na venda de imóveis, o ganho de capital na PF é tributado em até 22,5%, enquanto na holding pode ficar em torno de 6% a 7%.</p><h3>Proteção patrimonial</h3><p>Bens na holding não respondem diretamente por dívidas pessoais — incluindo ações judiciais de erro médico, divórcio ou execuções fiscais. A separação entre patrimônio pessoal e empresarial cria camadas legais de proteção.</p><h3>Planejamento sucessório</h3><p>A transmissão de cotas é significativamente mais simples e menos custosa do que o inventário de bens individuais. É possível fazer doações programadas de cotas com reserva de usufruto.</p><p><strong>A Wissen Contabilidade estrutura holdings patrimoniais e familiares para médicos desde a concepção até a operação contínua.</strong></p>'},
+  {tag:'Compliance',color:'#b5896b',date:'5 Mar 2026',read:'10 min',title:'Equiparação Hospitalar: guia completo para implementação em clínicas médicas',content:'<p>A equiparação hospitalar é um dos maiores benefícios tributários disponíveis para clínicas médicas no Lucro Presumido. Pode reduzir a base de cálculo do IRPJ e da CSLL de 32% para 8% e 12%, respectivamente.</p><h3>Base legal</h3><p>O benefício está previsto no artigo 15, §1º, III, "a", da Lei 9.249/95. Clínicas que prestam serviços em regime de internação ou com estrutura hospitalar podem se equiparar a hospitais para fins de tributação.</p><h3>Requisitos para equiparação</h3><p>Estar organizada como sociedade empresária; atender às normas da ANVISA; ter alvará sanitário e licença de funcionamento vigentes; prestar serviços que se enquadrem como hospitalares conforme a legislação.</p><h3>Serviços que se enquadram</h3><p>Cirurgias em ambiente controlado, internações (mesmo de curta duração), procedimentos que exijam estrutura de apoio diagnóstico e terapêutico. Consultas ambulatoriais simples não se enquadram.</p><h3>Impacto financeiro</h3><p>Para uma clínica com faturamento de R$ 200 mil/mês, a economia pode superar R$ 15 mil mensais — ou R$ 180 mil por ano.</p><p><strong>A Wissen Contabilidade domina integralmente o processo de equiparação hospitalar, desde a análise de viabilidade até a implementação completa.</strong></p>'}
+];
+
+function openArticle(i){
+  const a=articles[i];
+  document.getElementById('articleContent').innerHTML=
+    '<div style="margin-bottom:10px"><span style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:'+a.color+'">'+a.tag+'</span><span style="font-size:0.66rem;color:rgba(244,240,232,0.25);margin-left:16px">'+a.date+' · '+a.read+' de leitura</span></div>'+
+    '<h2 style="font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:22px">'+a.title+'</h2>'+
+    '<div style="width:56px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin-bottom:28px"></div>'+a.content;
+  const m=document.getElementById('articleModal');
+  m.style.display='block';
+  document.body.style.overflow='hidden';
+  m.scrollTop=0;
+}
+function closeArticle(){
+  document.getElementById('articleModal').style.display='none';
+  document.body.style.overflow='';
+}
+document.getElementById('articleModal').addEventListener('click',function(e){
+  if(e.target===this)closeArticle();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle()});
+</script>
+</body>
+</html>
